@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vue03</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+</head>
+<body>
+	<div id="app">
+
+		<h1 v-if="chances==4">You have noy more shots</h1>
+		<h1 v-else>Shots: {{chances}}</h1>
+		<h2>First player: {{ val01 }}</h2>
+		<h2>Second player: {{ val02 }}</h2>
+		<h1>{{ winner }}</h1>
+		<input type="button" name="gameplay" value="Click to play" v-on:click="gamePlay" :disabled="chances==4">
+		<input v-if="chances==4" type="button" name="restart" value="Restart the game" v-on:click="restart">
+		
+	</div>
+
+	<script type="text/javascript">
+		new Vue({
+			el: "#app",
+		  	data:{
+				val01:0,
+				val02:0,
+				winner:"--",
+				chances:0			
+		  	},
+		  	methods:{
+		  		restart:function(event){
+		  			this.chances = 0;
+		  		},
+		  		gamePlay:function(event){
+		  			this.val01 = Math.round(Math.random() * 10);
+		  			this.val02 = Math.round(Math.random() * 10);
+		  			var message = "No body win";
+		  			if (this.val01 > this.val02) {
+		  				message = "First is the winner";
+		  			}else if(this.val01!=this.val02){
+		  				message = 'Second is the winner';
+		  			}
+		  			this.chances++;
+		  			this.winner = message;
+		  		}
+		  	}		
+		})
+	</script>
+
+</body>
+</html>
