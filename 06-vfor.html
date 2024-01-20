@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vue03</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+</head>
+<body>
+	<div id="app">		
+		<!-- <ul><liv-for="n in 10"> Number: {{11-n}}</li></ul> -->
+	<h1>{{message}}</h1>
+	<lu>
+		<li v-for="item in items" v-on:click="showItem">
+			<button>{{item}}</button>
+		</li>
+	</lu>			
+		
+	</div>
+
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				items:['Naruto', 'Dragon Ball', 'Pokemon', 'Capitan Tsubasa'],
+				message:''
+
+			},methods: {
+			  showItem: function(event) {
+			    if (event) {
+			    	this.message = event.target.innerText;
+			    }
+			  }
+			}
+		})
+	</script>
+
+</body>
+</html>
