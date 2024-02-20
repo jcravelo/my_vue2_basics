@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vue03</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+</head>
+<body>
+	<div id="app">
+	<h1>Anime list</h1>
+	<lu>
+		<li v-for="anime in animeList">
+			Anime tv show name:<strong><a v-bind:href="anime.url">{{anime.name}}</a></strong>
+			principal character is: <strong>{{anime.principal}}</strong>
+		</li>
+	</lu>			
+		
+	</div>
+
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				animeList:[
+					{name:'Demon Slayer',principal: 'Tanjiro Kamado',url:'https://www.youtube.com/watch?v=cXqJE-aIvUs'},
+					{name:'Dragon Ball',principal:'Son Goku',url:'https://www.youtube.com/watch?v=i6Hzvs8MniU'},
+					{name:'Pokemon',principal:'Ash Kanto',url:'https://www.youtube.com/watch?v=JhUqf_fhgeA'},
+					{name:'Capitan Tsubasa',principal:'Tsubasa',url:'https://www.youtube.com/watch?v=PKnbvn0usPc&list=PLsdDAusy9ogj9o_IPINVyJw9C6B_Nrh5i'}
+				]
+			}
+		})
+	</script>
+
+</body>
+</html>

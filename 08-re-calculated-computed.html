@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vue03</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+</head>
+<body>
+	<div id="app">
+	
+	<input type="text" size="50" v-model="linkVVideo">
+
+	<select v-model='size'>
+		<option value="maxresdefault">Maximun Resolution</option>
+		<option value="sddefault">Standar Definition</option>
+		<option value="hqdefault">High Quality</option>
+	</select>
+		
+	<br><br>
+	<img v-bin:src="img">
+	</div>
+
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				linkVVideo:'https://www.youtube.com/watch?v=5ZsOFHR5CoM',
+				size:'hqdefault'
+			},
+			computed: {
+			  img:function() {
+			  	var id = (this.linkVVideo).split('v=')[1].substring(0,11);
+			    return 'https://img.youtube.com/vi/'+id+'/'+this.size+'.jpg';
+			  }
+			}
+		})
+	</script>
+
+</body>
+</html>
